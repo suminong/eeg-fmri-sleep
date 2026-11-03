@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# project-specific
+data/
+*.fif
+reports/**/*.png
+.DS_Store
