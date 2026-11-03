@@ -1,0 +1,16 @@
+file,n_volumes,trigger_jitter_samples,median_std_before_uv,median_std_after_uv,slice_peak_before,slice_peak_after
+sub-01_task-rest_run-1_eeg,286,0,688.6,30.2,38.5,1.9
+sub-01_task-rest_run-2_eeg,286,1,719.3,44.4,22.1,1.1
+sub-01_task-sleep_run-1_eeg,429,0,727.5,37.3,25.0,1.3
+sub-01_task-sleep_run-2_eeg,429,0,725.5,29.4,27.5,2.3
+sub-01_task-sleep_run-3_eeg,429,0,783.8,35.5,27.6,1.3
+sub-23_task-rest_run-1_eeg,286,0,1115.7,51.2,63.9,0.8
+sub-23_task-rest_run-2_eeg,286,0,990.9,52.4,67.1,0.8
+sub-23_task-sleep_run-1_eeg,429,0,991.8,44.8,58.0,1.4
+sub-23_task-sleep_run-2_eeg,429,0,995.1,38.7,56.4,0.5
+sub-23_task-sleep_run-3_eeg,429,0,992.0,55.2,54.4,0.9
+sub-23_task-sleep_run-4_eeg,429,0,1002.6,42.3,47.0,0.6
+sub-23_task-sleep_run-5_eeg,429,0,1001.1,45.7,44.5,0.8
+sub-23_task-sleep_run-6_eeg,429,0,996.8,44.7,51.1,0.8
+sub-23_task-sleep_run-7_eeg,429,0,995.5,54.8,43.4,0.5
+sub-23_task-sleep_run-8_eeg,429,0,996.0,38.0,53.9,0.7

@@ -69,3 +69,20 @@ Checked on sub-01 and sub-23 with `scripts/inspect_dataset.py`.
 - **ECG clips in 2.5 to 3.6% of samples** in every run. Acceptable, since ECG is only used to time R-peaks.
 - **Bad channels.** sub-01 F8 clips in 2.9% of samples in sleep run-3 only. sub-23 T8 degrades over the session (0% in rest run-1, 24% in rest run-2, 95 to 100% in all sleep runs) and is treated as bad from rest run-2 onward.
 - **Recording starts before the scan.** The first `R128` occurs 8 to 166 s into the recording. Staging epochs match scan length exactly, so staging time 0 is taken as the first `R128`.
+
+
+## Gradient artifact correction
+- Method: average artifact subtraction with a sliding 21-volume template, then 0.5 to 35 Hz band-pass and downsampling to 250 Hz.
+- Result on sub-01 sleep run-1 (Oz): median channel SD 727.5 to 37.6 uV; 16.7 Hz slice peak ratio 25.0 to 1.3.
+- Power below 15 Hz is unchanged by the correction, so sleep-relevant bands are preserved.
+- Narrow residual peaks remain near 38 to 48 Hz, not at slice harmonics, likely from scanner equipment. They fall outside the 0.5 to 35 Hz analysis band.
+
+## Gradient artifact correction
+`scripts/correct_gradient.py`, results in `reports/qc/gradient_summary.csv`.
+
+- **Method:** average artifact subtraction with a sliding 21-volume template, then 0.5 to 35 Hz band-pass and downsampling to 250 Hz.
+- **Volume onsets:** placed on an exact TR grid (10500 samples) from the first `R128`. Markers deviated from the grid by at most 1 sample (one run, sub-01 rest run-2), consistent with marker jitter under scanner clock sync.
+- **Results (15 runs, sub-01 and sub-23):** median channel SD fell from 690 to 1120 uV to 29 to 55 uV. The 16.7 Hz slice peak ratio fell from 22 to 67 to 0.5 to 2.3.
+- **Preserved bands:** power below 15 Hz is unchanged by the correction.
+- **Residual scanner peaks** near 38 to 48 Hz (not slice harmonics) are removed by the 35 Hz low-pass.
+- **Limitation:** in several runs the slice peak ratio drops below 1, suggesting slight over-subtraction near 16.7 Hz. This is close to the sleep spindle band (12 to 16 Hz) and should be checked before any spindle analysis.
